@@ -1,4 +1,6 @@
 let Num = 0;
+let storedNumber = 0;
+let currentOperator = "";
 
 function add(a, b) {
     return a + b;
@@ -37,7 +39,8 @@ function operate(operator, a,b){
             console.log("Error");
             break;
     }
-
+    Num = 0;
+    return result;
 }
 
 for(let i = 0; i < 10; i++) {
@@ -66,4 +69,51 @@ clearBtn.addEventListener("click", () => {
     Num = 0;
     populateDisplay("00000000")
     Num = 0;
+})
+
+const  addBtn = document.querySelector("#add-btn");
+
+addBtn.addEventListener("click", () => {
+    if(currentOperator == ""){
+        storedNumber = parseInt(Num);
+        Num = 0;
+        currentOperator = "+";
+    }else{
+        storedNumber = parseInt(operate(currentOperator, storedNumber, parseInt(Num)));
+        const display = document.querySelector(".num-display");
+        display.textContent = storedNumber;
+        console.log(storedNumber); 
+        currentOperator = "+";
+    }
+})
+const  subtractBtn = document.querySelector("#subtract-btn");
+
+subtractBtn.addEventListener("click", () => {
+    if(currentOperator == ""){
+        storedNumber = parseInt(Num);
+        Num = 0;
+        currentOperator = "-";
+    }else{
+        storedNumber = parseInt(operate(currentOperator, storedNumber, parseInt(Num)));
+        const display = document.querySelector(".num-display");
+        display.textContent = storedNumber;
+        console.log(storedNumber); 
+        currentOperator = "-";
+    }
+})
+const  divideBtn = document.querySelector("#divide-btn");
+
+divideBtn.addEventListener("click", () => {
+    storedNumber = operate("/", parseInt(Num), storedNumber);
+    const display = document.querySelector(".num-display");
+    display.textContent = storedNumber;
+    console.log(storedNumber);
+})
+const  multiplyBtn = document.querySelector("#multiply-btn");
+
+multiplyBtn.addEventListener("click", () => {
+    storedNumber = operate("*", parseInt(Num), storedNumber);
+    const display = document.querySelector(".num-display");
+    display.textContent = storedNumber;
+    console.log(storedNumber);
 })
