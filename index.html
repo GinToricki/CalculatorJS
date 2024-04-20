@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="container">
@@ -14,22 +15,29 @@
                 <p class="num-display">00000000</p>
             </div>
             <div class="buttons">
+                <div class="operations">
+                    <button id ="add-btn" class="operator">+</button>
+                    <button id ="subtract-btn" class="operator">-</button>
+                    <button id="divide-btn" class="operator">/</button>
+                    <button id="multiply-btn" class="operator">*</button>
+                </div>
                 <div class="numbers">
-                    <button id="i1">1</button>
-                    <button id="i2">2</button>
-                    <button id="i3">3</button>
-                    <button id="i4">4</button>
-                    <button id="i5">5</button>
-                    <button id="i6">6</button>
-                    <button id="i7">7</button>
-                    <button id="i8">8</button>
-                    <button id="i9">9</button>
-                    <button id="i0">0</button>
-                    <button id ="add-btn">+</button>
-                    <button id ="subtract-btn">-</button>
-                    <button id="divide-btn">/</button>
-                    <button id="multiply-btn">*</button>
-                    <button id="clear-btn">clear</button>
+                    <div class ="numbers2">
+                        <button id="i1" class="number">1</button>
+                        <button id="i2"class="number">2</button>
+                        <button id="i3"class="number">3</button>
+                        <button id="i4"class="number">4</button>
+                        <button id="i5"class="number">5</button>
+                        <button id="i6"class="number">6</button>
+                        <button id="i7"class="number">7</button>
+                        <button id="i8"class="number">8</button>
+                        <button id="i9"class="number">9</button>
+                    </div>
+                    <div class="zce-btn">
+                        <button id="i0" class="number">0</button>
+                        <button id="clear-btn" class="btn-2">clear</button>
+                        <button id="equals-btn" class="btn-2">=</button>
+                    </div>
                 </div>
             </div>
         </div>

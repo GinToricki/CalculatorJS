@@ -69,6 +69,8 @@ clearBtn.addEventListener("click", () => {
     Num = 0;
     populateDisplay("00000000")
     Num = 0;
+    storedNumber = 0;
+    currentOperator = "";
 })
 
 const  addBtn = document.querySelector("#add-btn");
@@ -104,16 +106,32 @@ subtractBtn.addEventListener("click", () => {
 const  divideBtn = document.querySelector("#divide-btn");
 
 divideBtn.addEventListener("click", () => {
-    storedNumber = operate("/", parseInt(Num), storedNumber);
-    const display = document.querySelector(".num-display");
-    display.textContent = storedNumber;
-    console.log(storedNumber);
+    if(currentOperator == ""){
+        storedNumber = parseInt(Num);
+        Num = 0;
+        currentOperator = "/";
+    }else{
+        storedNumber = parseInt(operate(currentOperator, storedNumber, parseInt(Num)));
+        const display = document.querySelector(".num-display");
+        display.textContent = storedNumber;
+        console.log(storedNumber); 
+        currentOperator = "/";
+    }
 })
 const  multiplyBtn = document.querySelector("#multiply-btn");
 
 multiplyBtn.addEventListener("click", () => {
-    storedNumber = operate("*", parseInt(Num), storedNumber);
-    const display = document.querySelector(".num-display");
-    display.textContent = storedNumber;
-    console.log(storedNumber);
+    if(currentOperator == ""){
+        storedNumber = parseInt(Num);
+        Num = 0;
+        currentOperator = "*";
+    }else{
+        storedNumber = parseInt(operate(currentOperator, storedNumber, parseInt(Num)));
+        const display = document.querySelector(".num-display");
+        display.textContent = storedNumber;
+        console.log(storedNumber); 
+        currentOperator = "*";
+    }
 })
+
+const equalBtn = document.querySelector("#equals-btn")
